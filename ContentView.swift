@@ -1,4 +1,48 @@
 import SwiftUI
+
+struct FooterMenuView: View {
+    var body: some View {
+        ZStack {
+            // 画面のコンテンツビュー
+            ContentView()
+            
+            // 画面下部に固定されたフッターメニュー
+            VStack {
+                Spacer()
+                HStack {
+                    Spacer()
+                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                        Image(systemName: "trash")
+                            .imageScale(/*@START_MENU_TOKEN@*/.large/*@END_MENU_TOKEN@*/)
+                            .foregroundStyle(Color.red)
+                    })
+                    Spacer()
+                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                        /*@START_MENU_TOKEN@*/Text("Button")/*@END_MENU_TOKEN@*/
+                            .foregroundStyle(Color.red)
+                    })
+                    Spacer()
+                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                        /*@START_MENU_TOKEN@*/Text("Button")/*@END_MENU_TOKEN@*/
+                            .foregroundStyle(Color.red)
+                    })
+                    Spacer()
+                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                        /*@START_MENU_TOKEN@*/Text("Button")/*@END_MENU_TOKEN@*/
+                            .foregroundStyle(Color.red)
+                    })
+                    Spacer()
+                }
+                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+                .padding(.vertical, 25)
+                .background(Color.black)
+            }
+            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+        }
+        .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+    }
+}
+
 struct ContentView: View {
     @State private var isTextVisible = true
     @State private var textOpacity: Double = 0.0
@@ -33,5 +77,6 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    //ContentView()
+    FooterMenuView()
 }
