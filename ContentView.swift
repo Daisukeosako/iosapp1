@@ -36,6 +36,12 @@ struct FooterMenuView: View {
     }
 }
 
+struct trainingmenu: View {
+    var body: some View {
+        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Hello, world!@*/Text("Hello, world!")/*@END_MENU_TOKEN@*/
+    }
+}
+
 struct ContentView: View {
     @State private var isTextVisible = true
 //    @State private var isTextVisible = false
