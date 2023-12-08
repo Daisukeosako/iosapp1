@@ -38,8 +38,55 @@ struct FooterMenuView: View {
 
 struct trainingmenu: View {
     var body: some View {
-        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Hello, world!@*/Text("Hello, world!")/*@END_MENU_TOKEN@*/
+        Text("hello")
     }
+}
+
+struct RecordTraining {
+    var date: Date
+    var exercise: String
+    var weight: Double
+    var repetitions: Int
+    var properties: [String]
+}
+
+let exerciseOptions = ["Bench Press", "Chest Fly", "Squats", "Deadlift", "Pull-ups"]
+let propertyOptions = ["Assisted", "Without Assistance", "Other"]
+
+struct recordtraining: View {
+    @State private var selectedExercise = ""
+    @State private var weight = ""
+    @State private var repetitions = ""
+    @State private var selectedProperty = ""
+    var body: some View {
+            Form {
+                DatePicker("Date", selection: .constant(Date()))
+                
+                Picker("Exercise", selection: $selectedExercise) {
+                    ForEach(exerciseOptions, id: \.self) {
+                        Text($0)
+                    }
+                }
+                
+                TextField("Weight", text: $weight)
+                    .keyboardType(.numberPad)
+                
+                TextField("Repetitions", text: $repetitions)
+                    .keyboardType(.numberPad)
+                
+                Picker("Property", selection: $selectedProperty) {
+                    ForEach(propertyOptions, id: \.self) {
+                        Text($0)
+                    }
+                }
+                
+                Button("Record Training") {
+                    // ここでRecordTrainingを作成してデータを保存するなどの処理を実行します
+                    let trainingRecord = RecordTraining(date: Date(), exercise: selectedExercise, weight: Double(weight) ?? 0.0, repetitions: Int(repetitions) ?? 0, properties: [selectedProperty])
+                    print(trainingRecord)
+                }
+            }
+        }
 }
 
 struct ContentView: View {
@@ -86,5 +133,6 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+//    ContentView()
+    recordtraining()
 }
